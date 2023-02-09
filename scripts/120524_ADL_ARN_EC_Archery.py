@@ -1,10 +1,10 @@
-import os
+from pathlib import Path
 
 import ffmpeg
 
 from time_lapse import output
 
-NAME = os.path.basename(__file__).replace('.py', '')
+NAME = Path(__file__).stem
 PATTERNS = [
     ('/Volumes/Falcon/tl_temp/120524/D90_1/*.tiff', 48),  # ARN_003613 - ARN_004715
     ('/Volumes/Falcon/tl_temp/120524/D700_1/*.tiff', 24),  # ADL_101173 - ADL_102042

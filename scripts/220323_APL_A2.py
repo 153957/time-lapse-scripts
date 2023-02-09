@@ -1,8 +1,8 @@
-import os
+from pathlib import Path
 
 from time_lapse import output, source
 
-NAME = os.path.basename(__file__).replace('.py', '')
+NAME = Path(__file__).stem
 PATTERN = '/Volumes/Jedi/Cache/220323_1_APL/*.tif',  # APL_103712 - APL_103931
 # poster: APL_103782
 

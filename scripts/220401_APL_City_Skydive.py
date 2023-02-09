@@ -1,10 +1,10 @@
-import os
+from pathlib import Path
 
 import ffmpeg
 
 from time_lapse import output, source
 
-NAME = os.path.basename(__file__).replace('.py', '')
+NAME = Path(__file__).stem
 PATTERN1 = '/Volumes/Jedi/Cache/220401_1_skydive/*.tif'  # APL_104104 - APL_104314
 PATTERN2 = '/Volumes/Jedi/Cache/220401_6_skydive/*.tif'  # APL_105404 - APL_106184
 # poster: APL_105558

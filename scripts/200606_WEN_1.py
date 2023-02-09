@@ -1,8 +1,8 @@
-import os
+from pathlib import Path
 
 from time_lapse import make_movie
 
-NAME = os.path.basename(__file__).replace('.py', '')
+NAME = Path(__file__).stem
 PATTERN = '/Volumes/Chiss/Falcon/Time-Lapse/WEN_1_Food/WEN_*.tif',  # WEN_052204 - WEN_052527
 # poster: WEN_052257
 

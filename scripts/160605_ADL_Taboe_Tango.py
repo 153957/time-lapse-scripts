@@ -1,8 +1,8 @@
-import os
+from pathlib import Path
 
 from time_lapse import output, source
 
-NAME = os.path.basename(__file__).replace('.py', '')
+NAME = Path(__file__).stem
 PATTERN = '/Volumes/Crimson/Cache/160605_ADL_Tango/*.tif'  # ADL_183879 - ADL_184093
 # poster: ADL_183879
 

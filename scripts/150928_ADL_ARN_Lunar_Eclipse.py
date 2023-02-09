@@ -1,10 +1,10 @@
-import os
+from pathlib import Path
 
 import ffmpeg
 
 from time_lapse import output, source
 
-NAME = os.path.basename(__file__).replace('.py', '')
+NAME = Path(__file__).stem
 CLOSE_PATTERNS = [
     '/Volumes/Jedi/Cache/ADL_150928_1/*.tif',  # ADL_190234 - ADL_190288
     '/Volumes/Jedi/Cache/ADL_150928_2/*.tif',  # ADL_190329 - ADL_190573

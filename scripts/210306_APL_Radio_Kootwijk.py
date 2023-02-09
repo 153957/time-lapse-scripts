@@ -1,8 +1,8 @@
-import os
+from pathlib import Path
 
 from time_lapse import make_movie
 
-NAME = os.path.basename(__file__).replace('.py', '')
+NAME = Path(__file__).stem
 PATTERN = '/Volumes/Chiss/Temporary/210306_APL_1/APL_*.tif',  # APL_081153 - APL_081520
 # poster: APL_081301
 

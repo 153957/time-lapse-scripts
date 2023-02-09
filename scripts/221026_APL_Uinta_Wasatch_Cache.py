@@ -1,8 +1,8 @@
-import os
+from pathlib import Path
 
 from time_lapse import make_movie
 
-NAME = os.path.basename(__file__).replace('.py', '')
+NAME = Path(__file__).stem
 PATTERNS = [
     '/Volumes/Jedi/Cache/221026_APL_1/*.tif',  # APL_140728 - APL_140947
     '/Volumes/Jedi/Cache/221026_APL_2/*.tif',  # APL_140949 - APL_141141

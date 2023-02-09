@@ -1,5 +1,5 @@
 import datetime
-import os
+from pathlib import Path
 
 from glob import glob
 
@@ -9,7 +9,7 @@ import ffmpeg
 
 from time_lapse import output
 
-NAME = os.path.basename(__file__).replace('.py', '')
+NAME = Path(__file__).stem
 PATTERNS = [
     ('/Volumes/Archive/tl_temp/D80_110522_1/*.tiff', 48),  # DSC_163723 - DSC_164490
     ('/Volumes/Archive/tl_temp/D80_110522_2/*.tiff', 48),  # DSC_164783 - DSC_165480

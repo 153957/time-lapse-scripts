@@ -1,8 +1,8 @@
-import os
+from pathlib import Path
 
 from time_lapse import make_movie
 
-NAME = os.path.basename(__file__).replace('.py', '')
+NAME = Path(__file__).stem
 PATTERN = '/Volumes/Jedi/Cache/220517_APL_1/*.tif'  # APL_112805 - APL_113025
 # poster: APL_112805
 
