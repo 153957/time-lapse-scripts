@@ -4,12 +4,12 @@ from time_lapse import output, source
 
 NAME = Path(__file__).stem
 PATTERN = '/Volumes/Crimson/Cache/160605_ADL_Tango/*.tif'  # ADL_183879 - ADL_184093
-# poster: ADL_183879
+POSTER = 'ADL_183879.tif'
 
 if __name__ == '__main__':
     source_input = (
         source
-        .get_input(PATTERN, 24, 0)
+        .get_input(PATTERN, 24, 0, None)
         .filter_('tblend', all_mode='darken', all_opacity=0.5)
     )
 

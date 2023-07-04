@@ -12,17 +12,17 @@ PATTERNS = [
 ]
 
 
-def make_movie():
+def create_movie() -> None:
     inputs = [
         ffmpeg
         .input(pattern, pattern_type='glob', framerate=24)
         .filter_('deflicker', mode='pm', size=5)
         for pattern in PATTERNS
     ]
-    input = ffmpeg.concat(*inputs)
+    combined_inputs = ffmpeg.concat(*inputs)
 
-    output.create_outputs(input, NAME, verbose=True)
+    output.create_outputs(combined_inputs, NAME, verbose=True)
 
 
 if __name__ == '__main__':
-    make_movie()
+    create_movie()

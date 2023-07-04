@@ -7,7 +7,7 @@ PATTERNS = [
     '/Volumes/Falcon/tl_temp/130305_1/*.tiff',  # ARN_038167 - ARN_038476
     '/Volumes/Falcon/tl_temp/130305_2/*.tiff',  # ARN_038495 - ARN_039026
 ]
-# poster: ARN_038262
+POSTER = 'ARN_038262.tif'
 
 
 if __name__ == '__main__':

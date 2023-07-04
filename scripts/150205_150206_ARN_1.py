@@ -7,7 +7,7 @@ PATTERNS = [
     '/Volumes/Crimson/Cache/150205_ARN_1/*.tif',  # ARN_085754 - ARN_085843
     '/Volumes/Crimson/Cache/150206_ARN_1/*.tif',  # ARN_086517 - ARN_086960
 ]
-# poster: ARN_085843
+POSTER = 'ARN_085843.tif'
 
 
 if __name__ == '__main__':

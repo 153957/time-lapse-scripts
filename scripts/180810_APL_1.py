@@ -3,8 +3,8 @@ from pathlib import Path
 from time_lapse import make_movie
 
 NAME = Path(__file__).stem
-PATTERN = '/Volumes/Sith/Store_elsewhere/Falcon/Time-Lapse/180810_APL_1/*.tif',  # APL_033321 - APL_033801
-# poster: APL_033611
+PATTERN = '/Volumes/Sith/Store_elsewhere/Falcon/Time-Lapse/180810_APL_1/*.tif'  # APL_033321 - APL_033801
+POSTER = 'APL_033611.tif'
 
 
 if __name__ == '__main__':

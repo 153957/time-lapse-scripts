@@ -1,11 +1,12 @@
 import datetime
-from pathlib import Path
 
 from glob import glob
-
-from PIL import Image
+from itertools import pairwise
+from pathlib import Path
 
 import ffmpeg
+
+from PIL import Image
 
 from time_lapse import output
 
@@ -19,36 +20,36 @@ PATTERNS = [
 ]
 
 
-def make_movie():
+def create_movie() -> None:
     inputs = [
         ffmpeg
         .input(pattern, pattern_type='glob', framerate=rate)
         .filter_('deflicker', mode='pm', size=10)
         for pattern, rate in PATTERNS
     ]
-    input = ffmpeg.concat(*inputs)
+    combined_inputs = ffmpeg.concat(*inputs)
 
-    output.create_outputs(input, NAME, verbose=True, framerate=48)
+    output.create_outputs(combined_inputs, NAME, verbose=True, framerate=48)
 
 
-def get_image_date(image_path):
+def get_image_date(image_path: str) -> datetime.datetime:
     """Get EXIF image date from an image as a datetime"""
     return datetime.datetime.strptime(Image.open(image_path)._getexif()[36867], '%Y:%m:%d %H:%M:%S')
 
 
-def analyse_interval_between_frames():
+def analyse_interval_between_frames() -> None:
     files = glob(PATTERNS[2][0])  # D80_110521_4
     outliers = []
     correct_interval = 4
 
-    for cur_path, nex_path in zip(files[:-1], files[1:]):
+    for cur_path, nex_path in pairwise(files):
         dt = get_image_date(nex_path) - get_image_date(cur_path)
         if dt > datetime.timedelta(seconds=correct_interval):
             print(dt, nex_path)
             outliers.append(int(nex_path[-10:-4]))
 
-    [(x, x - y) for z, x, y in zip(outliers[1:], outliers[:-1])]
+    [(x, x - y) for y, x in pairwise(outliers)]
 
 
 if __name__ == '__main__':
-    make_movie()
+    create_movie()

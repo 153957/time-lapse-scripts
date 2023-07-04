@@ -1,0 +1,57 @@
+[tool.mypy]
+ignore_missing_imports = true
+show_column_numbers = true
+show_error_codes = true
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.ruff]
+target-version = 'py311'
+line-length = 120
+select = [
+    # https://github.com/charliermarsh/ruff#supported-rules
+    'ALL',
+    'E111', 'E112', 'E113', 'E114', 'E115', 'E116', 'E117',
+    'E201', 'E202', 'E203',
+    'E211',
+    'E221', 'E222', 'E223', 'E224', 'E225', 'E226', 'E227', 'E228',
+    'E231',
+    'E251', 'E252',
+    'E261', 'E262', 'E265', 'E266',
+    'E271', 'E272', 'E273', 'E274', 'E275',
+]
+ignore = [
+    'ANN101',  # No need to add type to self
+    'D',  # Ignore docstring checks
+    'DTZ007',  # Ignore missing timezone
+    'E501',  # Some paths are very long
+    'EM',  # Allow messages directly in exceptions
+    'FBT001',  # Allow positional for boolean arguments
+    'FBT002',  # Allow default value for boolean arguments
+    'N999',  # Allow invalid module names for scripts
+    'PD',  # Not using pandas
+    'PLR0913',  # Allow functions with many arguments
+    'PT',  # Not using pytest
+    'Q000',  # Use single quotes
+    'RET504',  # Allow variable assignment before return
+    'S311',  # Allow pseudo-random generators for non-cryptographic purpose
+    'SIM108',  # Allow if-else block instead of ternary
+    'SLF001',  # Allo private member access
+    'T201',  # Allow using print
+    'TRY003',  # Specific messages for common exception classes
+]
+
+[tool.ruff.isort]
+lines-between-types = 1
+section-order = [
+    'future',
+    'standard-library',
+    'third-party',
+    'time_lapse',
+    'first-party',
+    'local-folder',
+]
+
+[tool.ruff.isort.sections]
+time_lapse = ['time_lapse']

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import argparse
 
 from os.path import commonprefix
@@ -14,8 +15,8 @@ def save_script(name: str, script: str) -> None:
 
 def single(path: str) -> None:
     """Simple single shot movie"""
-    path = Path(path).resolve()
-    sorted_images = sorted(image_path.stem for image_path in path.iterdir() if image_path.is_file())
+    resolved_path = Path(path).resolve()
+    sorted_images = sorted(image_path.stem for image_path in resolved_path.iterdir() if image_path.is_file())
     first = sorted_images[0]
     last = sorted_images[-1]
     poster = choice(sorted_images)
@@ -30,22 +31,22 @@ def single(path: str) -> None:
 
         NAME = Path(__file__).stem
         PATTERN = '{path}/*.tif'  # {first} - {last}
-        # poster: {poster}
+        POSTER = '{poster}.tif'
 
 
         if __name__ == '__main__':
             make_movie(NAME, PATTERN, {fps}, {deflicker}, watermark=True, verbose=False, dryrun=False)
     """).lstrip()
-    save_script(path.name, script)
+    save_script(resolved_path.name, script)
 
 
 def multiple(*paths: str) -> None:
     """Simple multiple shots stitched together"""
-    paths = [Path(path).resolve() for path in paths]
+    resolved_paths = [Path(path).resolve() for path in paths]
     firsts = []
     lasts = []
 
-    for path in paths:
+    for path in resolved_paths:
         sorted_images = sorted(image_path.stem for image_path in path.iterdir() if image_path.is_file())
         firsts.append(sorted_images[0])
         lasts.append(sorted_images[-1])
@@ -57,7 +58,7 @@ def multiple(*paths: str) -> None:
 
     patterns = '\n        '.join(
         f"    '{path}/*.tif',  # {first} - {last}"
-        for path, first, last in zip(paths, firsts, lasts, strict=True)
+        for path, first, last in zip(resolved_paths, firsts, lasts, strict=True)
     )
 
     script = dedent(f"""
@@ -69,15 +70,15 @@ def multiple(*paths: str) -> None:
         PATTERNS = [
         {patterns}
         ]
-        # poster: {poster}
+        POSTER = '{poster}.tif'
 
 
         if __name__ == '__main__':
             make_movie(NAME, PATTERNS, {fps}, {deflicker}, watermark=True, verbose=False, dryrun=False)
     """).lstrip()
 
-    prefix = commonprefix([path.name for path in paths])
-    name = '_'.join(path.name.removeprefix(prefix) for path in paths)
+    prefix = commonprefix([path.name for path in resolved_paths])
+    name = '_'.join(path.name.removeprefix(prefix) for path in resolved_paths)
     if prefix:
         name = f'{prefix}{name}'
     save_script(name, script)

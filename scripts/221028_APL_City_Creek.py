@@ -7,7 +7,7 @@ PATTERNS = [
     '/Volumes/Jedi/Cache/221028_APL_10/*.tif',  # APL_144487 - APL_144807
     '/Volumes/Jedi/Cache/221028_APL_11/*.tif',  # APL_144857 - APL_144977
 ]
-# poster: APL_144857
+POSTER = 'APL_144857.tif'
 
 
 if __name__ == '__main__':

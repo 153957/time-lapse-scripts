@@ -7,7 +7,7 @@ PATTERNS = [
     '/Volumes/Chiss/Archive/Time-Lapse/220219_1_APL/*.tif',  # APL_099992 - APL_100107
     '/Volumes/Chiss/Archive/Time-Lapse/220219_4_APL/*.tif',  # APL_100698 - APL_101023
 ]
-# poster: APL_100698
+POSTER = 'APL_100698.tif'
 
 
 if __name__ == '__main__':

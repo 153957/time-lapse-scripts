@@ -9,7 +9,7 @@ PATTERN1 = '/Volumes/Falcon/tl_temp/140416_1/*.tiff'
 PATTERN2 = '/Volumes/Falcon/tl_temp/140417_1/*.tiff'
 
 
-def make_movie():
+def create_movie() -> None:
     input1 = (
         ffmpeg
         .input(PATTERN1, pattern_type='glob', framerate=48)
@@ -20,10 +20,10 @@ def make_movie():
         .input(PATTERN2, pattern_type='glob', framerate=48)
         .filter_('deflicker', mode='pm', size=10)
     )
-    input = ffmpeg.concat(input2, input1)
+    combined_inputs = ffmpeg.concat(input2, input1)
 
-    output.create_outputs(input, NAME, verbose=True)
+    output.create_outputs(combined_inputs, NAME, verbose=True)
 
 
 if __name__ == '__main__':
-    make_movie()
+    create_movie()

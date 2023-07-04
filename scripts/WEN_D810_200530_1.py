@@ -3,7 +3,7 @@ from pathlib import Path
 from time_lapse import make_movie
 
 NAME = Path(__file__).stem
-PATTERN = '/Volumes/Archive/Other/Time-lapse Wen/timelapse_bloem_wen/Output/200530_D810_bloem/WEN_*.tif',  # WEN_D810_ - WEN_D810_
+PATTERN = '/Volumes/Archive/Other/Time-lapse Wen/200530_D810_bloem/WEN_*.tif'  # WEN_D810_ - WEN_D810_
 
 
 if __name__ == '__main__':

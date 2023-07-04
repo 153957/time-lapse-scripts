@@ -4,7 +4,7 @@ from time_lapse import make_movie
 
 NAME = Path(__file__).stem
 PATTERN = '/Volumes/Falcon/tl_temp/121103_2/*.tiff'  # ARN_020512 - ARN_021511
-# poster: ARN_020512
+POSTER = 'ARN_020512.tif'
 
 
 if __name__ == '__main__':

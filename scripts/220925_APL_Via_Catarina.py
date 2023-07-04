@@ -4,7 +4,7 @@ from time_lapse import make_movie
 
 NAME = Path(__file__).stem
 PATTERN = '/Volumes/Jedi/Cache/220924_Porto/220925_Porto_1_Via_Catarina/*.tif'  # APL_131728 - APL_131999
-# poster: APL_131728
+POSTER = 'APL_131728.tif'
 
 
 if __name__ == '__main__':

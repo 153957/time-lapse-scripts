@@ -4,7 +4,7 @@ from time_lapse import make_movie
 
 NAME = Path(__file__).stem
 PATTERN = '/Volumes/Crimson/Cache/090712_DSC_Tokyo_Tower/*.tif'  # D80_090712_183805 - D80_090712_195932
-# poster: D80_090712_190253
+POSTER = 'D80_090712_190253.tif'
 
 
 if __name__ == '__main__':

@@ -10,15 +10,15 @@ CLOSE_PATTERNS = [
     '/Volumes/Jedi/Cache/ADL_150928_2/*.tif',  # ADL_190329 - ADL_190573
     '/Volumes/Jedi/Cache/ADL_150928_4/*.tif',  # ADL_190676 - ADL_190877
 ]
-WIDE_PATTERN = '/Volumes/Jedi/Cache/ARN_150928_1/*.tif',  # ARN_096978 - ARN_097711
-# poster = ADL_190444
+WIDE_PATTERN = '/Volumes/Jedi/Cache/ARN_150928_1/*.tif'  # ARN_096978 - ARN_097711
+POSTER = 'ADL_190444.tif'
 
 if __name__ == '__main__':
-    wide_source = source.get_input(WIDE_PATTERN, 30, 0).filter_multi_output('split')
+    wide_source = source.get_input(WIDE_PATTERN, 30, 0, None).filter_multi_output('split')
 
-    close_source1 = source.get_input(CLOSE_PATTERNS[0], 30, 0)
-    close_source2 = source.get_input(CLOSE_PATTERNS[1], 30, 0)
-    close_source3 = source.get_input(CLOSE_PATTERNS[2], 30, 0)
+    close_source1 = source.get_input(CLOSE_PATTERNS[0], 30, 0, None)
+    close_source2 = source.get_input(CLOSE_PATTERNS[1], 30, 0, None)
+    close_source3 = source.get_input(CLOSE_PATTERNS[2], 30, 0, None)
 
     source = ffmpeg.concat(
         close_source1,

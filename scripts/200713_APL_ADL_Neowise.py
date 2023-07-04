@@ -11,7 +11,7 @@ PATTERNS = [
     '/Volumes/Sith/Store_elsewhere/Falcon/Time-Lapse/200712_ADL_4/*.tif',  # ADL_270995 - ADL_271219
     '/Volumes/Sith/Store_elsewhere/Falcon/Time-Lapse/200712_APL_3/*.tif',  # APL_072333 - APL_072917
 ]
-# poster: APL_071934
+POSTER = 'APL_071934.tif'
 
 if __name__ == '__main__':
     make_movie(NAME, PATTERNS, 30, 5, watermark=True, verbose=False, dryrun=False)
