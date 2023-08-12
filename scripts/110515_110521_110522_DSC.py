@@ -1,6 +1,5 @@
 import datetime
 
-from glob import glob
 from itertools import pairwise
 from pathlib import Path
 
@@ -38,7 +37,7 @@ def get_image_date(image_path: str) -> datetime.datetime:
 
 
 def analyse_interval_between_frames() -> None:
-    files = glob(PATTERNS[2][0])  # D80_110521_4
+    files = Path('/').glob(PATTERNS[2][0].removeprefix('/'))  # D80_110521_4
     outliers = []
     correct_interval = 4
 
