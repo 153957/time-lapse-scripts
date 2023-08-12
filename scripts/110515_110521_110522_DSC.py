@@ -31,9 +31,9 @@ def create_movie() -> None:
     output.create_outputs(combined_inputs, NAME, verbose=True, framerate=48)
 
 
-def get_image_date(image_path: str) -> datetime.datetime:
+def get_image_date(image_path: Path) -> datetime.datetime:
     """Get EXIF image date from an image as a datetime"""
-    return datetime.datetime.strptime(Image.open(image_path)._getexif()[36867], '%Y:%m:%d %H:%M:%S')
+    return datetime.datetime.strptime(Image.open(str(image_path))._getexif()[36867], '%Y:%m:%d %H:%M:%S')
 
 
 def analyse_interval_between_frames() -> None:
@@ -45,7 +45,7 @@ def analyse_interval_between_frames() -> None:
         dt = get_image_date(nex_path) - get_image_date(cur_path)
         if dt > datetime.timedelta(seconds=correct_interval):
             print(dt, nex_path)
-            outliers.append(int(nex_path[-10:-4]))
+            outliers.append(int(str(nex_path)[-10:-4]))
 
     [(x, x - y) for y, x in pairwise(outliers)]
 
