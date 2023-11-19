@@ -18,7 +18,8 @@ test: rufftest typingtest
 
 .PHONY: rufftest
 rufftest:
-	ruff .
+	ruff check .
+	ruff format --check .
 
 .PHONY: typingtest
 typingtest:

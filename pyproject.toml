@@ -7,9 +7,13 @@ warn_return_any = true
 warn_unused_configs = true
 
 [tool.ruff]
-target-version = 'py311'
 line-length = 120
-preview = true
+target-version = 'py311'
+
+[tool.ruff.format]
+quote-style = 'single'  # Prefer single quotes, except for triple quotes strings
+
+[tool.ruff.lint]
 select = ['ALL']  # https://docs.astral.sh/ruff/rules/
 ignore = [
     'ANN101',  # No need to add type to self
@@ -24,7 +28,6 @@ ignore = [
     'PD',  # Not using pandas
     'PLR0913',  # Allow functions with many arguments
     'PT',  # Not using pytest
-    'Q000',  # Use single quotes
     'RET504',  # Allow variable assignment before return
     'S311',  # Allow pseudo-random generators for non-cryptographic purpose
     'SIM108',  # Allow if-else block instead of ternary
@@ -33,7 +36,10 @@ ignore = [
     'TRY003',  # Specific messages for common exception classes
 ]
 
-[tool.ruff.isort]
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = 'single'
+
+[tool.ruff.lint.isort]
 lines-between-types = 1
 section-order = [
     'future',
