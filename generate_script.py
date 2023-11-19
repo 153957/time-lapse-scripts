@@ -24,7 +24,8 @@ def single(path: str) -> None:
     fps = 24
     deflicker = 3
 
-    script = dedent(f"""
+    script = dedent(
+        f"""
         from pathlib import Path
 
         from time_lapse import make_movie, thumbnail
@@ -37,7 +38,8 @@ def single(path: str) -> None:
         if __name__ == '__main__':
             make_movie(NAME, PATTERN, {fps}, {deflicker}, watermark=True, verbose=False, dryrun=False)
             thumbnail.create_thumbnail(NAME, Path(POSTER))
-    """).lstrip()
+        """,
+    ).lstrip()
     save_script(resolved_path.name, script)
 
 
@@ -62,7 +64,8 @@ def multiple(*paths: str) -> None:
         for path, first, last in zip(resolved_paths, firsts, lasts, strict=True)
     )
 
-    script = dedent(f"""
+    script = dedent(
+        f"""
         from pathlib import Path
 
         from time_lapse import make_movie, thumbnail
@@ -77,7 +80,8 @@ def multiple(*paths: str) -> None:
         if __name__ == '__main__':
             make_movie(NAME, PATTERNS, {fps}, {deflicker}, watermark=True, verbose=False, dryrun=False)
             thumbnail.create_thumbnail(NAME, Path(POSTER))
-    """).lstrip()
+        """,
+    ).lstrip()
 
     prefix = commonprefix([path.name for path in resolved_paths])
     name = '_'.join(path.name.removeprefix(prefix) for path in resolved_paths)
