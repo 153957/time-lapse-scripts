@@ -18,9 +18,6 @@ POSTER = '/Volumes/Crimson/Cache/230527_The Kelpies/230527_22/APL_168338.tif'
 
 
 if __name__ == '__main__':
-    inputs = [
-        source.get_input(pattern, fps=framerate, deflicker=3, filters=None)
-        for pattern, framerate in PATTERNS
-    ]
+    inputs = [source.get_input(pattern, fps=framerate, deflicker=3, filters=None) for pattern, framerate in PATTERNS]
     output.create_outputs(ffmpeg.concat(*inputs), NAME, framerate=24, watermark=True, verbose=False, dryrun=False)
     thumbnail.create_thumbnail(NAME, Path(POSTER))

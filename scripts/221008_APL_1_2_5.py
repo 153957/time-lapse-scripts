@@ -15,9 +15,7 @@ POSTER = 'APL_136020.tif'
 
 def create_movie() -> None:
     inputs = [
-        ffmpeg
-        .input(pattern, pattern_type='glob', framerate=framerate)
-        .filter_('deflicker', mode='pm', size=2)
+        ffmpeg.input(pattern, pattern_type='glob', framerate=framerate).filter_('deflicker', mode='pm', size=2)
         for pattern, framerate in PATTERNS
     ]
     combined_inputs = ffmpeg.concat(*inputs)

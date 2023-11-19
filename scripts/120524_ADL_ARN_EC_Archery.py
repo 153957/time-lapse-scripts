@@ -17,9 +17,7 @@ PATTERNS = [
 
 def create_movie() -> None:
     inputs = [
-        ffmpeg
-        .input(pattern, pattern_type='glob', framerate=framerate)
-        .filter_('deflicker', mode='pm', size=10)
+        ffmpeg.input(pattern, pattern_type='glob', framerate=framerate).filter_('deflicker', mode='pm', size=10)
         for pattern, framerate in PATTERNS
     ]
     combined_inputs = ffmpeg.concat(*inputs)

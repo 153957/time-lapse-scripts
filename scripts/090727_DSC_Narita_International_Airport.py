@@ -3,7 +3,9 @@ from pathlib import Path
 from time_lapse import make_movie
 
 NAME = Path(__file__).stem
-PATTERN = '/Volumes/Crimson/Cache/090727_DSC_Narita_International_Airport/*.tif'  # D80_090727_153936 - D80_090727_160037
+PATTERN = (
+    '/Volumes/Crimson/Cache/090727_DSC_Narita_International_Airport/*.tif'  # D80_090727_153936 - D80_090727_160037
+)
 POSTER = 'D80_090727_155831.tif'
 
 

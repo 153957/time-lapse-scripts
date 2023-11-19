@@ -9,8 +9,7 @@ POSTER = 'APL_103782.tif'
 
 if __name__ == '__main__':
     source_input = (
-        source
-        .get_input(PATTERN, 24, 0, None)
+        source.get_input(PATTERN, 24, 0, None)
         .filter_('tblend', all_mode='lighten', all_opacity=0.33)
         .filter_('tblend', all_mode='lighten', all_opacity=0.33)
     )
