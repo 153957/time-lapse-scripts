@@ -50,5 +50,5 @@ section-order = [
     'local-folder',
 ]
 
-[tool.ruff.isort.sections]
+[tool.ruff.lint.isort.sections]
 time_lapse = ['time_lapse']
