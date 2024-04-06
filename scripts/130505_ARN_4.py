@@ -3,7 +3,7 @@ from pathlib import Path
 from time_lapse import make_movie, thumbnail
 
 NAME = Path(__file__).stem
-PATTERN = '/Volumes/Twin suns/130505_ARN_4//*.tif'  # ARN_045762 - ARN_046211
+PATTERN = '/Volumes/Twin suns/130505_ARN_4/*.tif'  # ARN_045762 - ARN_046211
 POSTER = '/Volumes/Twin suns/130505_ARN_4/ARN_045770.tif'
 
 
