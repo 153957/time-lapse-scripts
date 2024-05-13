@@ -18,8 +18,7 @@ POSTER = '/Volumes/Jedi/Cache/240510_Aurora/ADL_1/ADL_289449.tif'
 
 if __name__ == '__main__':
     inputs = [
-        source.get_input(pattern, fps=framerate, deflicker=size, filters=None)
-        for pattern, framerate, size in PATTERNS
+        source.get_input(pattern, fps=framerate, deflicker=size, filters=None) for pattern, framerate, size in PATTERNS
     ]
     combined_inputs = ffmpeg.concat(*inputs)
     output.create_outputs(combined_inputs, NAME, framerate=48, watermark=True, verbose=False, dryrun=False)
