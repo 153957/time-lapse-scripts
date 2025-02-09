@@ -1,11 +1,6 @@
-import datetime
-
-from itertools import pairwise
 from pathlib import Path
 
 import ffmpeg
-
-from PIL import Image
 
 from time_lapse import output
 
