@@ -13,5 +13,5 @@ POSTER = '/Volumes/Jedi/Cache/250204_Veilinghaven/250204_APL_3/APL_254054.tif'
 
 
 if __name__ == '__main__':
-#     make_movie(NAME, PATTERNS, 24, 3, watermark=True, verbose=False, dryrun=False)
+    make_movie(NAME, PATTERNS, 24, 3, watermark=True, verbose=False, dryrun=False)
     thumbnail.create_thumbnail(NAME, Path(POSTER))
