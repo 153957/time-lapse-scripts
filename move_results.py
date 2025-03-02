@@ -46,12 +46,12 @@ def move_results(basename: str) -> None:
             raise FileNotFoundError(f'Source file "{file}" does not exist.')
 
     # Copy files to target directories
-    copy2(thumbnail_file, thumbnail_output_dir)
-    copy2(thumbnail_file, thumbnail_website_dir)
-    copy2(thumbnail_source, thumbnail_sources_dir)
-    copy2(video_1920, movies_1920_dir)
-    copy2(video_1920, movies_screensaver_dir)
-    copy2(video_960, movies_960_dir)
+    copy2(thumbnail_file, thumbnail_output_dir / thumbnail_file.name)
+    copy2(thumbnail_file, thumbnail_website_dir / thumbnail_file.name)
+    copy2(thumbnail_source, thumbnail_sources_dir / thumbnail_source.name)
+    copy2(video_1920, movies_1920_dir / video_1920.name)
+    copy2(video_1920, movies_screensaver_dir / video_1920.name)
+    copy2(video_960, movies_960_dir / video_1920.name)
 
     # Remove source files
     for file in [
