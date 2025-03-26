@@ -16,5 +16,5 @@ POSTER = '/Volumes/Jedi/Cache/250317_U_Flow/250317_APL_08/APL_259190.tif'
 
 
 if __name__ == '__main__':
-#     make_movie(NAME, PATTERNS, 15, 0, watermark=True, verbose=False, dryrun=False)
+    make_movie(NAME, PATTERNS, 15, 0, watermark=True, verbose=False, dryrun=False)
     thumbnail.create_thumbnail(NAME, Path(POSTER))
