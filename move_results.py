@@ -5,7 +5,7 @@ from pathlib import Path
 from shutil import copy2
 
 
-def move_results(basename: str) -> None:
+def move_results(basename: str, verbose: bool) -> None:
     # Source directory
     base_directory = Path(__file__).parent / 'scripts'
 
@@ -53,6 +53,18 @@ def move_results(basename: str) -> None:
     copy2(video_1920, movies_screensaver_dir / video_1920.name)
     copy2(video_960, movies_960_dir / video_1920.name)
 
+    if verbose:
+        print('Moved files to the following locations:')
+        for path in (
+            thumbnail_output_dir / thumbnail_file.name,
+            thumbnail_website_dir / thumbnail_file.name,
+            thumbnail_sources_dir / thumbnail_source.name,
+            movies_1920_dir / video_1920.name,
+            movies_screensaver_dir / video_1920.name,
+            movies_960_dir / video_1920.name,
+        ):
+            print(f' - {path}')
+
     # Remove source files
     for file in [
         thumbnail_file,
@@ -69,9 +81,14 @@ def main() -> None:
         'basename',
         help='Basename of the output.',
     )
-    args = parser.parse_args()
+    parser.add_argument(
+        '--verbose',
+        help='Show where the files were moved to.',
+        action='store_true',
+    )
+    kwargs = vars(parser.parse_args())
 
-    move_results(args.basename)
+    move_results(**kwargs)
 
 
 if __name__ == '__main__':
