@@ -16,7 +16,7 @@ def save_script(name: str, script: str) -> None:
 def single(path: str) -> None:
     """Simple single shot movie"""
     resolved_path = Path(path).resolve()
-    sorted_images = sorted(image_path for image_path in resolved_path.iterdir() if image_path.is_file())
+    sorted_images = sorted(image_path for image_path in resolved_path.glob('*.tif') if image_path.is_file())
     first = sorted_images[0].stem
     last = sorted_images[-1].stem
     poster = choice(sorted_images)
