@@ -1,17 +1,14 @@
 .PHONY: mypyinstall
 mypyinstall:
-	pip install --upgrade pip
-	pip install --upgrade --upgrade-strategy eager -r requirements-mypy.txt
+	uv pip install --upgrade -r requirements-mypy.txt
 
 .PHONY: ruffinstall
 ruffinstall:
-	pip install --upgrade pip
-	pip install --upgrade --upgrade-strategy eager -r requirements-ruff.txt
+	uv pip install --upgrade -r requirements-ruff.txt
 
 .PHONY: install
 install:
-	pip install --upgrade pip
-	pip install --upgrade --upgrade-strategy eager -r requirements.txt
+	uv pip install --upgrade -r requirements.txt
 
 .PHONY: test
 test: rufftest typingtest
