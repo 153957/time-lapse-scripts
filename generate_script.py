@@ -50,7 +50,7 @@ def multiple(*paths: str) -> None:
     lasts = []
 
     for path in resolved_paths:
-        sorted_images = sorted(image_path for image_path in path.iterdir() if image_path.is_file())
+        sorted_images = sorted(image_path for image_path in path.glob('*.tif') if image_path.is_file())
         firsts.append(sorted_images[0].stem)
         lasts.append(sorted_images[-1].stem)
 
