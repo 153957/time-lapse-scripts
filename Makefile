@@ -1,6 +1,6 @@
-.PHONY: mypyinstall
-mypyinstall:
-	uv pip install --upgrade -r requirements-mypy.txt
+.PHONY: tyinstall
+tyinstall:
+	uv pip install --upgrade -r requirements-ty.txt
 
 .PHONY: ruffinstall
 ruffinstall:
@@ -20,4 +20,4 @@ rufftest:
 
 .PHONY: typingtest
 typingtest:
-	mypy .
+	ty check

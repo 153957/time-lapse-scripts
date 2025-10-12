@@ -1,2 +1,2 @@
 -r requirements.txt
-mypy==1.17.0
+ty==1.0.0a22
