@@ -1,3 +1,21 @@
+[project]
+name = 'time-lapse-scripts'
+requires-python = '>=3.13'
+version = '0.0.0'
+dependencies = [
+    'time-lapse==9.0',
+]
+
+[dependency-groups]
+dev = [
+    'ruff==0.14.9',
+    'ty==0.0.1a34',
+]
+
+[tool.uv.sources.time-lapse]
+path = "../time-lapse"
+editable = true
+
 [tool.ty.rules]
 unresolved-attribute = 'ignore'
 

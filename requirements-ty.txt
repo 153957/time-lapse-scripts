@@ -1,2 +1,0 @@
--r requirements.txt
-ty==0.0.1a23
