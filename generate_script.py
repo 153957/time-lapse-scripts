@@ -21,7 +21,7 @@ def single(path: str) -> None:
     last = sorted_images[-1].stem
     poster = choice(sorted_images)
 
-    fps = 24
+    fps = 30
     deflicker = 3
 
     script = dedent(
@@ -56,7 +56,7 @@ def multiple(*paths: str) -> None:
 
     poster = choice(sorted_images)
 
-    fps = 24
+    fps = 30
     deflicker = 3
 
     patterns = '\n        '.join(
